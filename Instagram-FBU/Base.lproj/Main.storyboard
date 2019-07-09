@@ -188,14 +188,41 @@
                                 <action selector="logOutAction:" destination="ZrZ-HX-sYk" id="jV4-je-0gF"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="insta_camera_btn" style="plain" id="fSO-xd-tMg">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jN4-V2-Pct">
+                                <rect key="frame" x="334" y="9.5" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="insta_camera_btn"/>
+                                <connections>
+                                    <action selector="cameraButton:" destination="ZrZ-HX-sYk" eventType="touchUpInside" id="CeN-vE-MDi"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="logOutButton" destination="yq7-14-Oar" id="9yP-gW-a6g"/>
+                        <segue destination="woa-Hp-cJi" kind="presentation" identifier="CameraSegue" id="O9G-DA-Ex1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KNA-ed-c3N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1268" y="902"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="qaD-s6-fuc">
+            <objects>
+                <viewController id="Pal-Wr-nnU" customClass="ImageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3cD-LD-LA5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ftC-1u-qWQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZP7-rb-kwf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rWj-pZ-9UH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3068" y="901.79910044977521"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kwc-Xy-R3Q">
@@ -215,7 +242,28 @@
             </objects>
             <point key="canvasLocation" x="369" y="902"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ftc-el-nea">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="woa-Hp-cJi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FlV-Mi-99M">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Pal-Wr-nnU" kind="relationship" relationship="rootViewController" id="raK-Sw-aK9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sd4-nS-uMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2128.8000000000002" y="901.79910044977521"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="insta_camera_btn" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bto-vR-ssb"/>
     </inferredMetricsTieBreakers>
