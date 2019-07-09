@@ -216,7 +216,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKJ-34-9Bt">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKJ-34-9Bt">
                                 <rect key="frame" x="142" y="89" width="217" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -233,7 +233,11 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="ftC-1u-qWQ"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="E3z-Qd-dE1" appends="YES" id="ZcY-0w-h88"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="ZP7-rb-kwf">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="NKL-2s-xWl">
@@ -247,12 +251,18 @@
                         <outlet property="CreateCaption" destination="vKJ-34-9Bt" id="4ku-6x-nEK"/>
                         <outlet property="PostButton" destination="yV1-IA-gG7" id="qNI-cA-maO"/>
                         <outlet property="cancelButton" destination="NKL-2s-xWl" id="7wb-KU-HwC"/>
+                        <outlet property="postImage" destination="yRv-5V-Pz0" id="Zt8-3t-oZL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rWj-pZ-9UH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="B5P-yd-d6i">
                     <connections>
                         <action selector="OpenCameraButton:" destination="Pal-Wr-nnU" id="k8x-ir-HlV"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="E3z-Qd-dE1">
+                    <connections>
+                        <action selector="closeKeyboard:" destination="Pal-Wr-nnU" id="gkd-H3-V7l"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

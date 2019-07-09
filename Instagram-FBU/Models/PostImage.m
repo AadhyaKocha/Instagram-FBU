@@ -8,6 +8,7 @@
 
 #import "PostImage.h"
 #import "Parse/Parse.h"
+#import "ImageViewController.h"
 
 @implementation PostImage
 

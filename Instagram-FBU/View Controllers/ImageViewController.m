@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *CreateCaption;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *PostButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+@property (weak, nonatomic) IBOutlet UIImageView *postImage;
 
 @end
 
@@ -44,13 +45,12 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    // Get the image captured by the UIImagePickerController
+    
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     
-    // Do something with the images (based on your use case)
+    self.postImage.image = [self resizeImage:originalImage withSize:CGSizeMake(400, 400)];
     
-    // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -70,6 +70,10 @@
 
 - (IBAction)cancelAction:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)closeKeyboard:(id)sender {
+    [self.view endEditing:YES];
 }
 
 /*
