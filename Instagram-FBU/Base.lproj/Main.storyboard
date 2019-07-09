@@ -105,7 +105,7 @@
         <!--Log In View Controller-->
         <scene sceneID="UAr-wb-os0">
             <objects>
-                <viewController id="wVz-CA-C5o" customClass="LogInViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" id="wVz-CA-C5o" customClass="LogInViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FjS-8w-yXV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,7 +175,7 @@
         <!--Home Feed-->
         <scene sceneID="dag-sK-k6l">
             <objects>
-                <viewController title="Home Feed" id="ZrZ-HX-sYk" customClass="TimelineViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" title="Home Feed" id="ZrZ-HX-sYk" customClass="TimelineViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wz8-bD-RcQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,7 +186,6 @@
                         <barButtonItem key="leftBarButtonItem" title="Log out" id="yq7-14-Oar">
                             <connections>
                                 <action selector="logOutAction:" destination="ZrZ-HX-sYk" id="jV4-je-0gF"/>
-                                <segue destination="wVz-CA-C5o" kind="presentation" id="hbc-gK-4HO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -201,7 +200,7 @@
         <!--Navigation Controller-->
         <scene sceneID="kwc-Xy-R3Q">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nGh-td-hRh" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TimelineViewController" automaticallyAdjustsScrollViewInsets="NO" id="nGh-td-hRh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QQa-A0-iiY">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -218,7 +217,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="z3Z-AB-SSh"/>
-        <segue reference="xxp-rM-n5x"/>
+        <segue reference="Bto-vR-ssb"/>
     </inferredMetricsTieBreakers>
 </document>

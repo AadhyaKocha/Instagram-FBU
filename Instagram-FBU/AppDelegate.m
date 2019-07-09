@@ -25,6 +25,7 @@
     
     [Parse initializeWithConfiguration:config];
     
+    /*
     PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
     gameScore[@"score"] = @1337;
     gameScore[@"playerName"] = @"Sean Plott";
@@ -36,11 +37,12 @@
             NSLog(@"Error: %@", error.description);
         }
     }];
-    
-    if (PFUser.currentUser) {
+     */
+
+     if (PFUser.currentUser) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
-        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"AuthenticatedViewController"];
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TimelineViewController"];
     }
     
     return YES;
