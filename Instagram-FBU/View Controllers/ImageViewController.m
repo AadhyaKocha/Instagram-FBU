@@ -13,6 +13,9 @@
 #import "LogInViewController.h"
 
 @interface ImageViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *CreateCaption;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *PostButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 
 @end
 
@@ -20,18 +23,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"yay");
-    // Do any additional setup after loading the view.
+}
+
+- (IBAction)OpenCameraButton:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
     
-   [self presentViewController:imagePickerVC animated:YES completion:nil];
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
+    
     else {
         NSLog(@"Camera unavailable so we will use photo library instead");
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -47,7 +52,6 @@
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
-    //[self performSegueWithIdentifier:@"CameraSegue" sender:nil];
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
@@ -62,6 +66,10 @@
     UIGraphicsEndImageContext();
     
     return newImage;
+}
+
+- (IBAction)cancelAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

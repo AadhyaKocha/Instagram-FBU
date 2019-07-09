@@ -215,12 +215,46 @@
                     <view key="view" contentMode="scaleToFill" id="3cD-LD-LA5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKJ-34-9Bt">
+                                <rect key="frame" x="142" y="89" width="217" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="yRv-5V-Pz0">
+                                <rect key="frame" x="16" y="89" width="118" height="116"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="B5P-yd-d6i" appends="YES" id="ju8-oz-pgN"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ftC-1u-qWQ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZP7-rb-kwf"/>
+                    <navigationItem key="navigationItem" id="ZP7-rb-kwf">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="NKL-2s-xWl">
+                            <connections>
+                                <action selector="cancelAction:" destination="Pal-Wr-nnU" id="Luo-aO-Ihz"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="yV1-IA-gG7"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="CreateCaption" destination="vKJ-34-9Bt" id="4ku-6x-nEK"/>
+                        <outlet property="PostButton" destination="yV1-IA-gG7" id="qNI-cA-maO"/>
+                        <outlet property="cancelButton" destination="NKL-2s-xWl" id="7wb-KU-HwC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rWj-pZ-9UH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="B5P-yd-d6i">
+                    <connections>
+                        <action selector="OpenCameraButton:" destination="Pal-Wr-nnU" id="k8x-ir-HlV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3068" y="901.79910044977521"/>
         </scene>
@@ -262,6 +296,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
