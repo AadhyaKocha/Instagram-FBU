@@ -44,6 +44,7 @@
         NSLog(@"Camera unavailable so we will use photo library instead");
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
+    //[self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
