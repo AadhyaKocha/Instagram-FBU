@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PostImage.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol ImageViewControllerDelegate
+- (void)didPost:(PostImage *)post;
+@end
+
 @interface ImageViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (nonatomic, weak) id<ImageViewControllerDelegate> delegate;
 
 @end
 

@@ -8,15 +8,6 @@
 
 #import "PFObject.h"
 #import "Parse/Parse.h"
-//#import "PostViewCell.h"
-//#import "PostImage.h"
-//#import "TimelineViewController.h"
-
-/*
-@protocol ComposeViewControllerDelegate
-- (void)didTapPost:(PostImage *)post;
-@end
- */
 
 @interface PostImage : PFObject <PFSubclassing>
 

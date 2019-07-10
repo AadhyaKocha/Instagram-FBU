@@ -12,8 +12,9 @@
 #import "LogInViewController.h"
 #import "PostViewCell.h"
 #import "PostImage.h"
+#import "ImageViewController.h"
 
-@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@interface TimelineViewController () <ImageViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logOutButton;
 - (IBAction)cameraButton:(id)sender;
 @property (strong, nonatomic) NSMutableArray *posts;
@@ -26,24 +27,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //self.tableView.dataSource = self;
-    //self.tableView.delegate = self;
-    
-    /*
-     // construct query
-    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    [query whereKey:@"likesCount" lessThan:@100];
-    query.limit = 20;
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self fetchPosts];
+}
+
+- (void)fetchPosts {
+    // construct PFQuery
+    PFQuery *postQuery = [PostImage query];
+    [postQuery orderByDescending:@"createdAt"];
+    [postQuery includeKey:@"author"];
+    postQuery.limit = 20;
     
     // fetch data asynchronously
-    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-        if (posts != nil) {
-            // do something with the array of object returned by the call
-        } else {
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<PostImage *> * _Nullable posts, NSError * _Nullable error) {
+        if (posts) {
+            self.posts = posts;
+            [self.tableView reloadData];
+        }
+        else {
             NSLog(@"%@", error.localizedDescription);
         }
     }];
-     */
 }
 
 - (IBAction)logOutAction:(id)sender {
@@ -59,28 +64,40 @@
     [self performSegueWithIdentifier:@"CameraSegue" sender:nil];
 }
 
-/*
 //numberOfRows returns the number of items returned from the API
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
 }
 
-//cellForRow returns an instance of the custom cell with that reuse identifier with it’s elements populated with data at the index asked for
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     PostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostViewCell" forIndexPath:indexPath];
-    PostImage *post = self.posts[indexPath.row];
-    //cell.author.text = post.user.name;
-    //cell.caption.text = post.text;
-    cell.commentCount.text = [NSString stringWithFormat:@"%i", post.commentCount];
-    cell.likeCount.text = [NSString stringWithFormat:@"%i", post.likeCount];
     
-    //NSString *profileURLString = post.user.profileImage;
-    //NSURL *profileURL = [NSURL URLWithString:profileURLString];
+    PostImage *post = self.posts[indexPath.row];
+    cell.caption.text = post.caption;
+    cell.author.text = post.author.username;
+    cell.commentCount.text = [NSString stringWithFormat:@"%@", post.commentCount];
+    cell.likeCount.text = [NSString stringWithFormat:@"%@", post.likeCount];
+    
+    [post.image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (!error) {
+            cell.PostImage.image = [UIImage imageWithData:data];
+        }
+    }];
     
     return cell;
 }
- */
+
+- (void)didPost:(PostImage *)post {
+    [self.posts insertObject:post atIndex:0];
+    [self.tableView reloadData];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UINavigationController *navigationController = [segue destinationViewController];
+    ImageViewController *ImageController = (ImageViewController*)navigationController.topViewController;
+    ImageController.delegate = self;
+}
 
 /*
 #pragma mark - Navigation
@@ -100,13 +117,6 @@
         detailsController.tweet = tweet;
     }
 }
-*/
-
-/*
- - (void)didTweet:(Tweet *)tweet {
- [self.tweets insertObject:tweet atIndex:0];
- [self.tableView reloadData];
- }
 */
 
 @end
