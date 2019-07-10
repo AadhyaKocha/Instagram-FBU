@@ -11,6 +11,8 @@
 #import "Parse/Parse.h"
 #import "AppDelegate.h"
 #import "LogInViewController.h"
+#import "PFObject.h"
+#import "PostImage.h"
 
 @interface ImageViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *CreateCaption;
@@ -51,6 +53,12 @@
     
     self.postImage.image = [self resizeImage:originalImage withSize:CGSizeMake(400, 400)];
     
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)didTapPost:(UIBarButtonItem *)sender {
+    UIImage *resizeImage = [self resizeImage:self.postImage.image withSize:CGSizeMake(400, 400)];
+    [PostImage postUserImage: resizeImage withCaption:self.CreateCaption.text withCompletion:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
