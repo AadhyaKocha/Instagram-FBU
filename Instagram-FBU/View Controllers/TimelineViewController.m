@@ -76,6 +76,8 @@
     PostImage *post = self.posts[indexPath.row];
     cell.caption.text = post.caption;
     cell.author.text = post.author.username;
+    cell.authorCaption.text = post.author.username;
+    //cell.Date.text = post.Date;
     cell.commentCount.text = [NSString stringWithFormat:@"%@", post.commentCount];
     cell.likeCount.text = [NSString stringWithFormat:@"%@", post.likeCount];
     

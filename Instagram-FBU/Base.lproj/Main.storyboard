@@ -210,54 +210,70 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LQO-NU-Nvp">
-                                                    <rect key="frame" x="0.0" y="77" width="375" height="322"/>
+                                                    <rect key="frame" x="0.0" y="67" width="375" height="332"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dec-0H-TfN">
-                                                    <rect key="frame" x="15" y="11" width="64" height="53"/>
+                                                    <rect key="frame" x="15" y="11" width="55" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrF-Ta-v1x">
                                                     <rect key="frame" x="87" y="11" width="121" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tr7-q1-rE4">
-                                                    <rect key="frame" x="55" y="407" width="42" height="21"/>
+                                                    <rect key="frame" x="62" y="406" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSZ-Bu-HQx">
-                                                    <rect key="frame" x="166" y="407" width="42" height="21"/>
+                                                    <rect key="frame" x="158" y="407" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qk5-zy-deF">
-                                                    <rect key="frame" x="15" y="402" width="32" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HB9-dZ-tx7">
-                                                    <rect key="frame" x="122" y="404" width="36" height="27"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comment-insta" translatesAutoresizingMaskIntoConstraints="NO" id="HB9-dZ-tx7">
+                                                    <rect key="frame" x="129" y="404" width="29" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DC5-8O-rv5">
-                                                    <rect key="frame" x="15" y="439" width="329" height="51"/>
+                                                    <rect key="frame" x="112" y="436" width="248" height="51"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NrP-te-F3R">
+                                                    <rect key="frame" x="15" y="439" width="89" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-yu-0nu">
+                                                    <rect key="frame" x="15" y="466" width="64" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="like-insta" translatesAutoresizingMaskIntoConstraints="NO" id="Qk5-zy-deF">
+                                                    <rect key="frame" x="31" y="396" width="23" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="Date" destination="bj7-yu-0nu" id="sQz-fz-jZS"/>
                                             <outlet property="PostImage" destination="LQO-NU-Nvp" id="t4f-VW-4GI"/>
                                             <outlet property="author" destination="YrF-Ta-v1x" id="KIw-0e-nVD"/>
+                                            <outlet property="authorCaption" destination="NrP-te-F3R" id="B3f-RM-s5F"/>
                                             <outlet property="caption" destination="DC5-8O-rv5" id="pvt-RQ-LDQ"/>
                                             <outlet property="commentCount" destination="XSZ-Bu-HQx" id="jnX-BI-F9l"/>
                                             <outlet property="likeCount" destination="Tr7-q1-rE4" id="PCZ-EV-bo2"/>
@@ -399,9 +415,11 @@
     </scenes>
     <resources>
         <image name="1200px-Instagram_logo.svg" width="1200" height="429"/>
+        <image name="comment-insta" width="151" height="128"/>
         <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="instagram_gradient_wallpaper_by_jasonzigrino-da28exh" width="581" height="162"/>
+        <image name="like-insta" width="137" height="137"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bto-vR-ssb"/>
