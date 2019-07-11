@@ -53,14 +53,16 @@
 - (void)fetchPosts {
     // construct PFQuery
     PFQuery *postQuery = [PostImage query];
+    PFUser *currentUser = [PFUser currentUser];
     [postQuery orderByDescending:@"createdAt"];
-    [postQuery includeKey:@"author"];
+    [postQuery whereKey:@"author" equalTo:currentUser];
+    NSArray *userPosts = [postQuery findObjects];
     postQuery.limit = 20;
     
     // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<PostImage *> * _Nullable posts, NSError * _Nullable error) {
         if (posts) {
-            self.posts = posts;
+            self.posts = (NSMutableArray *)userPosts;
             [self.collectionView reloadData];
         }
         else {
