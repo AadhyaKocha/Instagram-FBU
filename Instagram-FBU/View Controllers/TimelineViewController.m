@@ -102,7 +102,6 @@
     NSDate *date = [formatter dateFromString:createdAtOriginalString];
     NSDate *now = [NSDate date];
     NSInteger timeApart = [now hoursFrom:date];
-    NSLog(@"timeApart: %li; date: %@; now: %@", timeApart, date, now);
     
     if (timeApart >= 24) {
         formatter.dateStyle = NSDateFormatterShortStyle;
