@@ -13,8 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ProfileViewController : UIViewController
 
-//@property (nonatomic, strong) PFFileObject *profileImage;
-
 @end
 
 NS_ASSUME_NONNULL_END

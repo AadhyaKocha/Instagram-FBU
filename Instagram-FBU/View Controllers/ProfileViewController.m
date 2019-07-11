@@ -20,7 +20,6 @@
 @end
 
 @implementation ProfileViewController
-//@dynamic profileImage;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +31,15 @@
     
     PFUser *currentUser = [PFUser currentUser];
     self.username.text = [currentUser username];
+    
+    [currentUser[@"profileImage"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (!error) {
+            self.ProfilePicture.image = [UIImage imageWithData:data];
+        }
+    }];
+
+    self.ProfilePicture.layer.cornerRadius = self.ProfilePicture.frame.size.width / 2;
+    self.ProfilePicture.clipsToBounds = YES;
     
     /*
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
@@ -83,13 +91,14 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     
     self.ProfilePicture.image = [self resizeImage:originalImage withSize:CGSizeMake(400, 400)];
-    //[PFUser currentUser].profileImage = editedImage;
-//    PFFileObject *profilePicture = user[@"profileImage"];
-//    NSString stringWithContentsOfURL:
     
+    PFFileObject *profilePic = [PostImage getPFFileFromImage:self.ProfilePicture.image];
+    PFUser *currentUser = [PFUser currentUser];
     
-   // [self User][@"profileImage"]
-    //[self presentViewController:imagePickerVC animated:YES completion:nil];
+    currentUser[@"profileImage"] = profilePic;
+    [currentUser saveInBackground];
+    
+    self.ProfilePicture.image = editedImage;
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

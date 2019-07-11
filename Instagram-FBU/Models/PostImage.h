@@ -23,5 +23,6 @@
 //@property (nonatomic, strong) PFFileObject *profileImage;
 
 + (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image ;
 
 @end

@@ -34,6 +34,14 @@
     self.commentCount.text = [NSString stringWithFormat:@"%@", self.post.commentCount];
     self.likeCount.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
     
+    [self.post.author[@"profileImage"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (!error) {
+            self.profileImage.image = [UIImage imageWithData:data];
+        }
+    }];
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
+    self.profileImage.clipsToBounds = YES;
+    
     [self.post.image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (!error) {
             self.postImage.image = [UIImage imageWithData:data];

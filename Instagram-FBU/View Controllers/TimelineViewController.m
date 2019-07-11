@@ -15,6 +15,7 @@
 #import "ImageViewController.h"
 #import "DetailsViewController.h"
 #import "DateTools.h"
+#import "ProfileViewController.h"
 
 @interface TimelineViewController () <ImageViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logOutButton;
@@ -82,11 +83,20 @@
     PostViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostViewCell" forIndexPath:indexPath];
     
     PostImage *post = self.posts[indexPath.row];
+    cell.post = post;
     cell.caption.text = post.caption;
     cell.author.text = post.author.username;
     cell.authorCaption.text = post.author.username;
     cell.commentCount.text = [NSString stringWithFormat:@"%@", post.commentCount];
     cell.likeCount.text = [NSString stringWithFormat:@"%@", post.likeCount];
+    
+    [post.author[@"profileImage"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (!error) {
+            cell.profileImage.image = [UIImage imageWithData:data];
+        }
+    }];
+    cell.profileImage.layer.cornerRadius = cell.profileImage.frame.size.width / 2;
+    cell.profileImage.clipsToBounds = YES;
     
     [post.image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (!error) {
