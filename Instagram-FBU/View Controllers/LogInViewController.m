@@ -8,6 +8,7 @@
 
 #import "LogInViewController.h"
 #import "Parse/Parse.h"
+#import "AppDelegate.h"
 
 @interface LogInViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -32,9 +33,12 @@
             NSLog(@"User log in failed: %@", error.localizedDescription);
         } else {
             NSLog(@"User logged in successfully");
-           [self performSegueWithIdentifier:@"logInSegue" sender:nil];
-            
-           //self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarVC"];
+            //[self performSegueWithIdentifier:@"logInSegue" sender:nil];
+            //self.window.rootViewController = [UIStoryboard instantiateViewControllerWithIdentifier:@"TabBarVC"];
+            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            LogInViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarVC"];
+            appDelegate.window.rootViewController = loginViewController;
         }
     }];
 }

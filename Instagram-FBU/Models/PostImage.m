@@ -20,6 +20,7 @@
 @dynamic likeCount;
 @dynamic commentCount;
 @dynamic createdAt;
+//@dynamic profileImage;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";
@@ -34,6 +35,7 @@
     newPost.likeCount = @(0);
     newPost.commentCount = @(0);
     newPost.createdAt = [NSDate date];
+    //newPost.profileImage = [self getPFFileFromImage:image];
     
     [newPost saveInBackgroundWithBlock: completion];
 }

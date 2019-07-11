@@ -8,6 +8,7 @@
 
 #import "SignUpViewController.h"
 #import "Parse/Parse.h"
+#import "AppDelegate.h"
 
 @interface SignUpViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -40,10 +41,19 @@
             NSLog(@"Error: %@", error.localizedDescription);
         } else {
             NSLog(@"User registered successfully");
-            [self performSegueWithIdentifier:@"signUpSegue" sender:nil];
+            //[self performSegueWithIdentifier:@"signUpSegue" sender:nil];
+            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            SignUpViewController *SignUpViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarVC"];
+            appDelegate.window.rootViewController = SignUpViewController;
         }
     }];
 }
+
+- (IBAction)shutKeyboard:(id)sender {
+    [self.view endEditing:YES];
+}
+
 /*
 #pragma mark - Navigation
 
