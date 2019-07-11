@@ -7,6 +7,8 @@
 //
 
 #import "PostViewCell.h"
+#import "PostImage.h"
+#import "TimelineViewController.h"
 
 @implementation PostViewCell
 
@@ -19,6 +21,30 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)didTapFavorite:(id)sender {
+    
+    if ([self.post.likeCount intValue] == 0) {
+        
+        NSNumber *number = [NSNumber numberWithInt:[self.post.likeCount intValue]];
+        int value = [self.post.likeCount intValue];
+        number = [NSNumber numberWithInt:value + 1];
+        //[self.post.likeCount intValue] = number;
+        self.likeCount.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
+        [self.favoriteButton setImage:[UIImage imageNamed:@"red-like"] forState: UIControlStateNormal];
+    }
+    
+     else if ([self.post.likeCount intValue] == 1) {
+         //self.post.likeCount = NO;
+
+         NSNumber *number = [NSNumber numberWithInt:[self.post.likeCount intValue]];
+         int value = [self.post.likeCount intValue];
+         number = [NSNumber numberWithInt:value - 1];
+         //[self.post.likeCount intValue] = number;
+         self.likeCount.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
+         [self.favoriteButton setImage:[UIImage imageNamed:@"like-insta"] forState: UIControlStateNormal];
+     }
 }
 
 @end

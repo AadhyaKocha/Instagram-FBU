@@ -113,6 +113,13 @@
         cell.Date.text = date.shortTimeAgoSinceNow;
     }
     
+    if ([post.likeCount intValue] == 1) {
+        [cell.favoriteButton setImage:[UIImage imageNamed:@"red-like"] forState:UIControlStateNormal];
+    }
+    else if ([post.likeCount intValue] == 0) {
+        [cell.favoriteButton setImage:[UIImage imageNamed:@"like-insta"] forState:UIControlStateNormal];
+    }
+    
     return cell;
 }
 

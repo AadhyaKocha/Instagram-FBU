@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PostImage.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *author;
 @property (weak, nonatomic) IBOutlet UILabel *authorCaption;
 @property (weak, nonatomic) IBOutlet UILabel *Date;
+@property (strong, nonatomic) PostImage *post;
+
+@property (weak, nonatomic) IBOutlet UILabel *favorited;
+@property (weak, nonatomic) IBOutlet UILabel *commented;
+
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (weak, nonatomic) IBOutlet UIButton *commentButton;
 
 @end
 

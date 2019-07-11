@@ -32,7 +32,9 @@
             NSLog(@"User log in failed: %@", error.localizedDescription);
         } else {
             NSLog(@"User logged in successfully");
-            [self performSegueWithIdentifier:@"logInSegue" sender:nil];
+           [self performSegueWithIdentifier:@"logInSegue" sender:nil];
+            
+           //self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarVC"];
         }
     }];
 }
