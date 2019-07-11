@@ -7,6 +7,10 @@
 //
 
 #import "DetailsViewController.h"
+#import "PostImage.h"
+#import "PostViewCell.h"
+#import "TimelineViewController.h"
+#import "DateTools.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
@@ -24,7 +28,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.caption.text = self.post.caption;
+    self.username.text = self.post.author.username;
+    self.usernameCaption.text = self.post.author.username;
+    self.commentCount.text = [NSString stringWithFormat:@"%@", self.post.commentCount];
+    self.likeCount.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
+    
+    [self.post.image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (!error) {
+            self.postImage.image = [UIImage imageWithData:data];
+        }
+    }];
+    NSString *createdAtOriginalString = self.date.text = [NSString stringWithFormat:@"%@", self.post.createdAt];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // Configure the input format to parse the date string
+    formatter.dateFormat = @"YYYY-MM-dd HH:mm:ss z";
+    // Convert String to Date
+    NSDate *date = [formatter dateFromString:createdAtOriginalString];
+    NSDate *now = [NSDate date];
+    NSInteger timeApart = [now hoursFrom:date];
+    NSLog(@"timeApart: %li; date: %@; now: %@", timeApart, date, now);
+    
+    if (timeApart >= 24) {
+        formatter.dateStyle = NSDateFormatterShortStyle;
+        formatter.timeStyle = NSDateFormatterNoStyle;
+        self.date.text = [formatter stringFromDate:date];
+    }
+    else {
+        self.date.text = date.shortTimeAgoSinceNow;
+    }
 }
 
 /*

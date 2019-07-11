@@ -14,6 +14,7 @@
 #import "PostImage.h"
 #import "ImageViewController.h"
 #import "DetailsViewController.h"
+#import "DateTools.h"
 
 @interface TimelineViewController () <ImageViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logOutButton;
@@ -84,7 +85,6 @@
     cell.caption.text = post.caption;
     cell.author.text = post.author.username;
     cell.authorCaption.text = post.author.username;
-    //cell.Date.text = post.Date;
     cell.commentCount.text = [NSString stringWithFormat:@"%@", post.commentCount];
     cell.likeCount.text = [NSString stringWithFormat:@"%@", post.likeCount];
     
@@ -93,6 +93,25 @@
             cell.PostImage.image = [UIImage imageWithData:data];
         }
     }];
+    
+    NSString *createdAtOriginalString = cell.Date.text = [NSString stringWithFormat:@"%@", post.createdAt];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // Configure the input format to parse the date string
+    formatter.dateFormat = @"YYYY-MM-dd HH:mm:ss z";
+    // Convert String to Date
+    NSDate *date = [formatter dateFromString:createdAtOriginalString];
+    NSDate *now = [NSDate date];
+    NSInteger timeApart = [now hoursFrom:date];
+    NSLog(@"timeApart: %li; date: %@; now: %@", timeApart, date, now);
+    
+    if (timeApart >= 24) {
+        formatter.dateStyle = NSDateFormatterShortStyle;
+        formatter.timeStyle = NSDateFormatterNoStyle;
+        cell.Date.text = [formatter stringFromDate:date];
+    }
+    else {
+        cell.Date.text = date.shortTimeAgoSinceNow;
+    }
     
     return cell;
 }
@@ -112,30 +131,10 @@
     else if ([segue.identifier isEqualToString: @"detailSegue"]) {
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-        NSDictionary *movie = self.posts[indexPath.row];
-        DetailsViewController *detailsViewController = [segue destinationViewController];
-        detailsViewController.post = movie;
-    }
-}
-
-/*
-#pragma mark - Navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString: @"publishingSegue"]) {
-        UINavigationController *navigationController = [segue destinationViewController];
-        composeViewController *composeController = (composeViewController*)navigationController.topViewController;
-        composeController.delegate = self;
-    }
-    else if ([segue.identifier isEqualToString: @"DetailsSegue"]) {
-        
-        DetailsViewController *detailsController = [segue destinationViewController];
-        
-        UITableViewCell *tappedCell = sender;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         PostImage *post = self.posts[indexPath.row];
-        detailsController.tweet = tweet;
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.post =post;
     }
 }
-*/
 
 @end
