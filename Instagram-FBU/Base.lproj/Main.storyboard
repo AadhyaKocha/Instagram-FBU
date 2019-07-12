@@ -408,7 +408,11 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mEM-73-x2L">
                                 <rect key="frame" x="0.0" y="279.5" width="375" height="387.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="XQI-on-6rM">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="fYq-UD-GFJ"/>
+                                    <constraint firstAttribute="height" constant="387.5" id="mQG-Lh-FCx"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="XQI-on-6rM">
                                     <size key="itemSize" width="119" height="131"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -424,7 +428,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZKe-5B-z4b">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="131"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -443,12 +447,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="mEM-73-x2L" firstAttribute="trailing" secondItem="ioJ-6h-TUa" secondAttribute="trailing" id="2lE-10-qFh"/>
                             <constraint firstItem="sOc-LI-End" firstAttribute="centerX" secondItem="JtA-6c-qAd" secondAttribute="centerX" id="6GR-C0-e49"/>
                             <constraint firstItem="mEM-73-x2L" firstAttribute="leading" secondItem="JtA-6c-qAd" secondAttribute="leading" id="Bhr-kw-bGk"/>
                             <constraint firstItem="sOc-LI-End" firstAttribute="top" secondItem="JtA-6c-qAd" secondAttribute="top" constant="238" id="NSz-5V-dmN"/>
                             <constraint firstItem="mEM-73-x2L" firstAttribute="top" secondItem="sOc-LI-End" secondAttribute="bottom" constant="16" id="bDX-39-wVX"/>
                             <constraint firstAttribute="trailing" secondItem="mEM-73-x2L" secondAttribute="trailing" id="bGm-4X-uWl"/>
                             <constraint firstAttribute="bottom" secondItem="mEM-73-x2L" secondAttribute="bottom" id="gSi-ly-UhO"/>
+                            <constraint firstAttribute="bottom" secondItem="mEM-73-x2L" secondAttribute="bottom" id="jCY-qq-14L"/>
+                            <constraint firstItem="mEM-73-x2L" firstAttribute="leading" secondItem="ioJ-6h-TUa" secondAttribute="leading" id="pe7-8E-v4d"/>
                             <constraint firstItem="mEM-73-x2L" firstAttribute="top" secondItem="sOc-LI-End" secondAttribute="bottom" constant="16" id="xFY-rH-1PK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ioJ-6h-TUa"/>
