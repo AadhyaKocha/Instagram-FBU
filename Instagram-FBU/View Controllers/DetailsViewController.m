@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @property (weak, nonatomic) IBOutlet UILabel *commentCount;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIButton *commentButton;
+
 @property (weak, nonatomic) IBOutlet UILabel *usernameCaption;
 @property (weak, nonatomic) IBOutlet UILabel *caption;
 @property (weak, nonatomic) IBOutlet UILabel *date;
@@ -64,6 +67,40 @@
     }
     else {
         self.date.text = date.shortTimeAgoSinceNow;
+    }
+    
+    if ([self.post.likeCount intValue] >= 1) {
+        [self.likeButton setImage:[UIImage imageNamed:@"red-like"] forState:UIControlStateNormal];
+    }
+    else if ([self.post.likeCount intValue] == 0) {
+        [self.likeButton setImage:[UIImage imageNamed:@"like-insta"] forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction)didTapFavorite:(id)sender {
+    if ([self.post.likeCount intValue] == 0) {
+        
+        NSNumber *number = self.post.likeCount; //[NSNumber numberWithInt:[self.post.likeCount intValue]];
+        int value = [number intValue];
+        number = [NSNumber numberWithInt:value + 1];
+        //[self.post.likeCount intValue] = number;
+        self.likeCount.text = [NSString stringWithFormat:@"%@", number];
+        [self.likeButton setImage:[UIImage imageNamed:@"red-like"] forState: UIControlStateNormal];
+        [self.post setValue:number forKey:@"likeCount"];
+        [self.post saveInBackground];
+    }
+    
+    else if ([self.post.likeCount intValue] >= 1) {
+        //self.post.likeCount = NO;
+        
+        NSNumber *number = [NSNumber numberWithInt:[self.post.likeCount intValue]];
+        int value = [self.post.likeCount intValue];
+        number = [NSNumber numberWithInt:value - 1];
+        //[self.post.likeCount intValue] = number;
+        self.likeCount.text = [NSString stringWithFormat:@"%@", number];
+        [self.likeButton setImage:[UIImage imageNamed:@"like-insta"] forState: UIControlStateNormal];
+        [self.post setValue:number forKey:@"likeCount"];
+        [self.post saveInBackground];
     }
 }
 

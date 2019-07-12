@@ -358,7 +358,7 @@
             </objects>
             <point key="canvasLocation" x="-930" y="1782"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="3qx-tf-OOr">
             <objects>
                 <viewController id="qqy-cI-lep" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -422,7 +422,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ioJ-6h-TUa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ttA-Qv-Nqc"/>
+                    <navigationItem key="navigationItem" title="Profile" id="ttA-Qv-Nqc"/>
                     <connections>
                         <outlet property="ProfilePicture" destination="uAB-Ll-1Wt" id="QFI-e4-frb"/>
                         <outlet property="collectionView" destination="mEM-73-x2L" id="Xed-39-o2J"/>
@@ -475,14 +475,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="like-insta" translatesAutoresizingMaskIntoConstraints="NO" id="N8M-bF-8Cu">
-                                <rect key="frame" x="31" y="463" width="23" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comment-insta" translatesAutoresizingMaskIntoConstraints="NO" id="f4p-OW-3Dw">
-                                <rect key="frame" x="129" y="471" width="29" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C60-pk-rNR">
                                 <rect key="frame" x="112" y="503" width="247" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -512,14 +504,29 @@
                                 <rect key="frame" x="321" y="474" width="38" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHe-gr-eps">
+                                <rect key="frame" x="36" y="469" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="like-insta"/>
+                                <connections>
+                                    <action selector="didTapFavorite:" destination="gD5-5H-TOJ" eventType="touchUpInside" id="sId-9K-CqP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcK-ez-1yg">
+                                <rect key="frame" x="123" y="469" width="27" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="comment-insta"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Wrx-0F-LS9"/>
                     </view>
                     <connections>
                         <outlet property="caption" destination="C60-pk-rNR" id="Z8c-9W-qja"/>
+                        <outlet property="commentButton" destination="xcK-ez-1yg" id="1ZA-of-OVv"/>
                         <outlet property="commentCount" destination="ONI-DD-RYe" id="Zpf-7Z-9nd"/>
                         <outlet property="date" destination="Goe-D1-Qfd" id="Vj3-WT-ARR"/>
+                        <outlet property="likeButton" destination="wHe-gr-eps" id="aSd-Ld-3t1"/>
                         <outlet property="likeCount" destination="trO-9r-fzy" id="R0J-mE-dJZ"/>
                         <outlet property="postImage" destination="0hQ-tr-rxi" id="uw0-EC-Rqb"/>
                         <outlet property="profileImage" destination="3HO-cx-bju" id="w7D-BR-rmy"/>
@@ -615,6 +622,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="9mX-WD-0G6">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vJO-zk-VV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="TabBarVC" id="pYW-dc-9hL" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hgP-tD-fGr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -626,9 +634,8 @@
                         <segue destination="qYj-E8-LjC" kind="relationship" relationship="viewControllers" id="7i6-Sw-IwC"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vJO-zk-VV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2020" y="502"/>
+            <point key="canvasLocation" x="-2050" y="482"/>
         </scene>
         <!--Item-->
         <scene sceneID="amN-hb-90L">
