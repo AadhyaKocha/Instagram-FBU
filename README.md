@@ -36,17 +36,19 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
+- [x] Added additional labels like followers, following, posts, tagging people and more to make it look more similar to instagram.
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. A little more on Autolayout specially for our home timelineViewController which has so many objects on it.
 2. Being able to click on username from within the cell without going to DetailViewController to lead to profile was challenging and I would like to know more about how to implement it.
+3. Finding assets that fit in with the application. I couldn't get the image I uploaded to show on the launch screen or on teh tab bar even though it worked on the home feed.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/P1QmUYtTqd.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/iqJoDT2sPq.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
