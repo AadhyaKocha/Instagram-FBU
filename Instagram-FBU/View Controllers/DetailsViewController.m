@@ -80,10 +80,9 @@
 - (IBAction)didTapFavorite:(id)sender {
     if ([self.post.likeCount intValue] == 0) {
         
-        NSNumber *number = self.post.likeCount; //[NSNumber numberWithInt:[self.post.likeCount intValue]];
+        NSNumber *number = self.post.likeCount;
         int value = [number intValue];
         number = [NSNumber numberWithInt:value + 1];
-        //[self.post.likeCount intValue] = number;
         self.likeCount.text = [NSString stringWithFormat:@"%@", number];
         [self.likeButton setImage:[UIImage imageNamed:@"red-like"] forState: UIControlStateNormal];
         [self.post setValue:number forKey:@"likeCount"];
@@ -91,27 +90,15 @@
     }
     
     else if ([self.post.likeCount intValue] >= 1) {
-        //self.post.likeCount = NO;
         
         NSNumber *number = [NSNumber numberWithInt:[self.post.likeCount intValue]];
         int value = [self.post.likeCount intValue];
         number = [NSNumber numberWithInt:value - 1];
-        //[self.post.likeCount intValue] = number;
         self.likeCount.text = [NSString stringWithFormat:@"%@", number];
         [self.likeButton setImage:[UIImage imageNamed:@"like-insta"] forState: UIControlStateNormal];
         [self.post setValue:number forKey:@"likeCount"];
         [self.post saveInBackground];
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

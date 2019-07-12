@@ -40,14 +40,6 @@
 
     self.ProfilePicture.layer.cornerRadius = self.ProfilePicture.frame.size.width / 2;
     self.ProfilePicture.clipsToBounds = YES;
-    
-    /*
-    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
-    CGFloat postersPerLine = 3;
-    CGFloat itemWidth = (self.collectionView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine - 1))  / postersPerLine;
-    CGFloat itemHeight = itemWidth;
-    layout.itemSize = CGSizeMake(itemWidth, itemHeight);
-     */
 }
 
 - (void)fetchPosts {
@@ -136,14 +128,5 @@
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.posts.count;
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

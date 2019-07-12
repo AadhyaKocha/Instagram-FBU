@@ -20,7 +20,6 @@
 @dynamic likeCount;
 @dynamic commentCount;
 @dynamic createdAt;
-//@dynamic profileImage;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";
@@ -35,20 +34,17 @@
     newPost.likeCount = @(0);
     newPost.commentCount = @(0);
     newPost.createdAt = [NSDate date];
-    //newPost.profileImage = [self getPFFileFromImage:image];
     
     [newPost saveInBackgroundWithBlock: completion];
 }
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
     
-    // check if image is not nil
     if (!image) {
         return nil;
     }
     
     NSData *imageData = UIImagePNGRepresentation(image);
-    // get image data and check if that is not nil
     if (!imageData) {
         return nil;
     }
